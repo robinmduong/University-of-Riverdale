@@ -1,0 +1,1 @@
+<p>University of Riverdale © 2021</p>
