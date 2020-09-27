@@ -21,3 +21,11 @@
 [26-Sep-2020 17:41:20 UTC] PHP  14. do_action() C:\Users\robin\Local Sites\university-of-riverdale\app\public\wp-includes\script-loader.php:1999
 [26-Sep-2020 17:41:20 UTC] PHP  15. WP_Hook->do_action() C:\Users\robin\Local Sites\university-of-riverdale\app\public\wp-includes\plugin.php:478
 [26-Sep-2020 17:41:20 UTC] PHP  16. WP_Hook->apply_filters() C:\Users\robin\Local Sites\university-of-riverdale\app\public\wp-includes\class-wp-hook.php:311
+[26-Sep-2020 20:15:11 UTC] PHP Parse error:  syntax error, unexpected 'wp_enqueue_style' (T_STRING) in C:\Users\robin\Local Sites\university-of-riverdale\app\public\wp-content\themes\fictional-university-theme\functions.php on line 5
+[26-Sep-2020 20:18:46 UTC] PHP Parse error:  syntax error, unexpected 'get_footer' (T_STRING) in C:\Users\robin\Local Sites\university-of-riverdale\app\public\wp-content\themes\fictional-university-theme\index.php on line 107
+[26-Sep-2020 23:23:58 UTC] PHP Parse error:  syntax error, unexpected '">About Us</a></li>' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in C:\Users\robin\Local Sites\university-of-riverdale\app\public\wp-content\themes\fictional-university-theme\header.php on line 18
+[26-Sep-2020 23:26:32 UTC] PHP Parse error:  syntax error, unexpected '>' in C:\Users\robin\Local Sites\university-of-riverdale\app\public\wp-content\themes\fictional-university-theme\header.php on line 10
+[27-Sep-2020 03:22:35 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ')' in C:\Users\robin\Local Sites\university-of-riverdale\app\public\wp-content\themes\fictional-university-theme\page.php on line 37
+[27-Sep-2020 03:22:44 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ')' in C:\Users\robin\Local Sites\university-of-riverdale\app\public\wp-content\themes\fictional-university-theme\page.php on line 37
+[27-Sep-2020 03:22:53 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ')' in C:\Users\robin\Local Sites\university-of-riverdale\app\public\wp-content\themes\fictional-university-theme\page.php on line 37
+[27-Sep-2020 03:23:10 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ')' in C:\Users\robin\Local Sites\university-of-riverdale\app\public\wp-content\themes\fictional-university-theme\page.php on line 37
