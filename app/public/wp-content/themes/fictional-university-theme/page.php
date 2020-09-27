@@ -4,11 +4,71 @@
     
     while (have_posts()) {
         the_post(); ?>
-        <h1>This is a page, not a post</h1>
-        <h2><?php the_title(); ?></h2>
-        <?php the_content(); ?>
+        
+        <div class="page-banner">
+            <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri('/images/ocean.jpg') ?>);"></div>
+            <div class="page-banner__content container container--narrow">
+            <h1 class="page-banner__title"><?php the_title() ?></h1>
+            <div class="page-banner__intro">
+                <p>Learn how the school of your dreams got started.</p>
+            </div>
+            </div>  
+        </div>
+
+        <div class="container container--narrow page-section">
+
+            <?php
+                $theParent = wp_get_post_parent_id(get_the_ID());
+                if ($theParent) { ?>
+                    <div class="metabox metabox--position-up metabox--with-home-link">
+                        <p>
+                            <a class="metabox__blog-home-link" href="<?php echo get_permalink($theParent); ?>">
+                                <i class="fa fa-home" aria-hidden="true"></i> 
+                                Back to <?php echo get_the_title($theParent); ?>
+                            </a> 
+                        <span class="metabox__main"><?php the_title(); ?></span></p>
+                    </div>
+                <?php }
+            ?>
+            
+            <?php 
+            //If a parent, returns the children. Otherwise, returns null
+            $testArray = get_pages(array(
+                'child_of' => get_the_ID()
+            )); //very similar to wp_list_pages(). Difference: wp_list_pages() outputs on screen, get_pages() returns in memory only
+            
+            //Returns if has a parent or is a parent
+            if ($theParent or $testArray) { ?>
+                <div class="page-links">
+                <h2 class="page-links__title"><a href="<?php echo get_permalink($theParent) ?>"><?php echo get_the_title($theParent)?></a></h2>
+                <ul class="min-list">
+                    <?php
+                        if ($theParent) { //only if current page has a parent
+                            $findChildrenOf = $theParent;
+                        } else {
+                            $findChildrenOf = get_the_ID();
+                        }
+                        wp_list_pages(array (
+                            'title_li' => NULL, //set to null so we don't have to output explicitly as text on the pg
+                            'child_of' => $findChildrenOf,
+                            'sort_menu' => 'menu_order' //sorts the children in right sidebar by Page Attributes > Order in the WP Admin
+                        ));
+                    ?>
+                </ul>
+                </div> 
+            <?php } ?>
+
+            <div class="generic-content">
+                <?php the_content() ?>
+            
+        </div>
+
+        </div>
+
+
     <?php }
 
     get_footer();
+
 
 ?>
