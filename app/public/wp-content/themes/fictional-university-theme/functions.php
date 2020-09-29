@@ -18,6 +18,9 @@ add_action('wp_enqueue_scripts', 'university_files');
 //add_action(type of instructions we'll give WP, name of function you want to run)
 
 function university_features() {
+    // register_nav_menu('headerMenuLocation', 'Header Menu Location'); //first name can be anything, 2nd name is more user-friendly and will show up in WP admin screen
+    // register_nav_menu('footerLocationOne', 'Footer Location One');
+    // register_nav_menu('footerLocationTwo', 'Footer Location Two');
     add_theme_support('title-tag'); //the header updates automatically e.g. Privacy Policy and About Us
 }
 
