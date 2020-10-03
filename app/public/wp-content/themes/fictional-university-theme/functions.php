@@ -31,4 +31,23 @@ function university_features() {
 
 add_action('after_setup_theme', 'university_features');
 
+function university_adjust_queries($query) {
+    if (!is_admin() AND is_post_type_archive('event') AND $query->is_main_query()) { //if you are not on the admin dashboard. We need this code or else it affects the back-end in WP Admin portal
+        $today = date('Ymd');
+        $query->set('meta_key', 'event_date'); //this code comes fr/ front-page.php
+        $query->set('orderby', 'meta_value_num');
+        $query->set('order', 'ASC');
+        $query->set('meta_query', array(
+            array(
+                'key' => 'event_date',
+                'compare' => '>=',
+                'value' => $today,
+                'type' => 'numeric'
+            )
+            )); //semicolon mandatory or error says that } is unexpected
+    }
+}
+
+add_action('pre_get_posts', 'university_adjust_queries');
+
 ?>
