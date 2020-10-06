@@ -32,6 +32,14 @@ function university_features() {
 add_action('after_setup_theme', 'university_features');
 
 function university_adjust_queries($query) {
+    if (!is_admin() AND is_post_type_archive('program') AND is_main_query()) {
+        if (!is_admin() AND is_post_type_archive('program') AND is_main_query()) {
+            $query->set('orderby', 'title'); 
+            $query->set('order', 'ASC');
+            $query->set('posts_per_page', -1); //lists all programson page
+        }
+    }
+
     if (!is_admin() AND is_post_type_archive('event') AND $query->is_main_query()) { //if you are not on the admin dashboard. We need this code or else it affects the back-end in WP Admin portal
         $today = date('Ymd');
         $query->set('meta_key', 'event_date'); //this code comes fr/ front-page.php
